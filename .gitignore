@@ -1,0 +1,27 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# Data and generated files
+data/raw/*.tbl
+data/raw/*.csv
+data/processed/*
+results/raw/*.csv
+results/processed/*.csv
+results/figures/*.png
+results/figures/*.pdf
+
+# IDE, OS, and local env settings
+.env
+.env.local
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
