@@ -1,0 +1,30 @@
+# Master Benchmark Matrix Configuration
+
+scale_factors:
+  small: 0.1
+  medium: 0.5
+  large: 1.0
+
+databases:
+  - mongodb
+  - postgresql
+
+index_modes:
+  - none
+  - indexed
+
+workloads:
+  - q1
+  - q2
+  - q3
+  - q4
+  - q5
+  - crud
+
+warmup_runs: 3
+measurement_runs: 10
+
+output_directories:
+  raw: "results/raw"
+  processed: "results/processed"
+  figures: "results/figures"
