@@ -2,12 +2,9 @@ postgresql:
   host: "localhost"
   port: 5432
   user: "postgres"
-  password: "password"
-  dbname: "tpch_benchmark"
+  password: "iamdharaneesh"
+  dbname: "postgres"
 
 mongodb:
-  host: "localhost"
-  port: 27017
+  uri: "mongodb+srv://dharaneesh19112006_db_user:gQt6ffv6Vbd674og@cluster0.udozmqh.mongodb.net/?appName=Cluster0"
   dbname: "tpch_benchmark"
-  username: ""
-  password: ""

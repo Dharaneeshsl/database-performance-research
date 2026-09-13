@@ -8,20 +8,15 @@ env/
 venv/
 ENV/
 
-# Data and generated dataset files
+# Data and generated raw dataset files (ignored)
 data/
 dataset/
 *.tbl
-*.csv
 *.dss
 data/raw/
 data/processed/
-results/raw/*.csv
-results/processed/*.csv
-results/figures/*.png
-results/figures/*.pdf
+results/raw/
 
-TPC-H V3.0.1
 # IDE, OS, and local env settings
 .env
 .env.local

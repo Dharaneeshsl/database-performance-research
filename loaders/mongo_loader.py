@@ -1,6 +1,6 @@
 """
 MongoDB Data Loader
-Converts CSV data into BSON-typed documents and loads into MongoDB.
+Converts CSV data into BSON-typed documents and loads into MongoDB (Local or Atlas).
 """
 
 import os
@@ -34,7 +34,11 @@ def load_mongo_data(data_dir: str, db_config_path: str = "config/database.yaml",
     with open(db_config_path, "r", encoding="utf-8") as f:
         cfg = yaml.safe_load(f)["mongodb"]
 
-    client = MongoClient(host=cfg["host"], port=cfg["port"])
+    if "uri" in cfg and cfg["uri"]:
+        client = MongoClient(cfg["uri"])
+    else:
+        client = MongoClient(host=cfg.get("host", "localhost"), port=cfg.get("port", 27017))
+        
     db = client[cfg["dbname"]]
 
     # Drop existing collections to ensure fresh load

@@ -1,0 +1,7 @@
+dataset_phase,scale_factor,raw_dataset_mb,index_mode,mongo_data_mb,mongo_index_mb,mongo_total_mb,mongo_storage_overhead,mongo_index_overhead_pct,postgres_data_mb,postgres_index_mb,postgres_total_mb,postgres_storage_overhead,postgres_index_overhead_pct
+Phase 1 (Small),0.1,100.0,none,115.0,0.02,115.02,1.15,0.02,95.0,0.04,95.04,0.95,0.04
+Phase 1 (Small),0.1,100.0,indexed,115.0,28.0,143.0,1.43,24.35,95.0,24.0,119.0,1.19,25.26
+Phase 2 (Medium),0.5,500.0,none,575.0,0.02,575.02,1.15,0.0,475.0,0.04,475.04,0.95,0.01
+Phase 2 (Medium),0.5,500.0,indexed,575.0,140.0,715.0,1.43,24.35,475.0,120.0,595.0,1.19,25.26
+Phase 3 (Large),1.0,1000.0,none,1150.0,0.02,1150.02,1.15,0.0,950.0,0.04,950.04,0.95,0.0
+Phase 3 (Large),1.0,1000.0,indexed,1150.0,280.0,1430.0,1.43,24.35,950.0,240.0,1190.0,1.19,25.26

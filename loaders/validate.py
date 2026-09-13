@@ -31,7 +31,11 @@ def validate_datasets(db_config_path: str = "config/database.yaml"):
 
     # MongoDB counts
     mg_cfg = cfg["mongodb"]
-    mg_client = MongoClient(host=mg_cfg["host"], port=mg_cfg["port"])
+    if "uri" in mg_cfg and mg_cfg["uri"]:
+        mg_client = MongoClient(mg_cfg["uri"])
+    else:
+        mg_client = MongoClient(host=mg_cfg.get("host", "localhost"), port=mg_cfg.get("port", 27017))
+        
     mg_db = mg_client[mg_cfg["dbname"]]
     mg_counts = {}
     for table in TABLES:

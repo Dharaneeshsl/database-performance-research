@@ -109,7 +109,11 @@ def run_experiment_matrix(config_path: str = "config/experiment.yaml", db_config
         )
 
         mg_cfg = db_cfg["mongodb"]
-        mg_client = MongoClient(host=mg_cfg["host"], port=mg_cfg["port"])
+        if "uri" in mg_cfg and mg_cfg["uri"]:
+            mg_client = MongoClient(mg_cfg["uri"])
+        else:
+            mg_client = MongoClient(host=mg_cfg.get("host", "localhost"), port=mg_cfg.get("port", 27017))
+            
         mg_db = mg_client[mg_cfg["dbname"]]
 
         for scale_name, sf_val in exp_cfg["scale_factors"].items():

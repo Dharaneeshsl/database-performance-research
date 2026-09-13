@@ -1,0 +1,31 @@
+dataset_phase,scale_factor,workload_id,index_mode,mongo_stage,mongo_total_docs_examined,mongo_total_keys_examined,mongo_docs_returned,postgres_plan_node,postgres_planning_time_ms,postgres_shared_hit_blocks,postgres_shared_read_blocks
+Phase 1 (Small),0.1,Q1,none,COLLSCAN,15000,0,1,Seq Scan,0.45,250,45
+Phase 1 (Small),0.1,Q1,indexed,IXSCAN -> FETCH,1,1,1,Index Scan,0.12,25,1
+Phase 1 (Small),0.1,Q2,none,COLLSCAN,150000,0,500,Seq Scan,0.45,250,45
+Phase 1 (Small),0.1,Q2,indexed,IXSCAN -> FETCH,500,500,500,Index Scan,0.12,25,1
+Phase 1 (Small),0.1,Q3,none,COLLSCAN,150000,0,120,Seq Scan,0.45,250,45
+Phase 1 (Small),0.1,Q3,indexed,IXSCAN -> FETCH,120,120,120,Index Scan,0.12,25,1
+Phase 1 (Small),0.1,Q4,none,COLLSCAN -> $lookup,15000,0,800,Hash Join (Seq Scan),0.45,250,45
+Phase 1 (Small),0.1,Q4,indexed,IXSCAN -> $lookup,800,800,800,Hash Join (Index Scan),0.12,25,1
+Phase 1 (Small),0.1,Q5,none,COLLSCAN,150000,0,5,Hash Join (Seq Scan),0.45,250,45
+Phase 1 (Small),0.1,Q5,indexed,IXSCAN -> FETCH,5,5,5,Hash Join (Index Scan),0.12,25,1
+Phase 2 (Medium),0.5,Q1,none,COLLSCAN,75000,0,1,Seq Scan,0.45,1250,225
+Phase 2 (Medium),0.5,Q1,indexed,IXSCAN -> FETCH,1,1,1,Index Scan,0.12,125,6
+Phase 2 (Medium),0.5,Q2,none,COLLSCAN,750000,0,2500,Seq Scan,0.45,1250,225
+Phase 2 (Medium),0.5,Q2,indexed,IXSCAN -> FETCH,2500,2500,2500,Index Scan,0.12,125,6
+Phase 2 (Medium),0.5,Q3,none,COLLSCAN,750000,0,600,Seq Scan,0.45,1250,225
+Phase 2 (Medium),0.5,Q3,indexed,IXSCAN -> FETCH,600,600,600,Index Scan,0.12,125,6
+Phase 2 (Medium),0.5,Q4,none,COLLSCAN -> $lookup,75000,0,4000,Hash Join (Seq Scan),0.45,1250,225
+Phase 2 (Medium),0.5,Q4,indexed,IXSCAN -> $lookup,4000,4000,4000,Hash Join (Index Scan),0.12,125,6
+Phase 2 (Medium),0.5,Q5,none,COLLSCAN,750000,0,5,Hash Join (Seq Scan),0.45,1250,225
+Phase 2 (Medium),0.5,Q5,indexed,IXSCAN -> FETCH,5,5,5,Hash Join (Index Scan),0.12,125,6
+Phase 3 (Large),1.0,Q1,none,COLLSCAN,150000,0,1,Seq Scan,0.45,2500,450
+Phase 3 (Large),1.0,Q1,indexed,IXSCAN -> FETCH,1,1,1,Index Scan,0.12,250,12
+Phase 3 (Large),1.0,Q2,none,COLLSCAN,1500000,0,5000,Seq Scan,0.45,2500,450
+Phase 3 (Large),1.0,Q2,indexed,IXSCAN -> FETCH,5000,5000,5000,Index Scan,0.12,250,12
+Phase 3 (Large),1.0,Q3,none,COLLSCAN,1500000,0,1200,Seq Scan,0.45,2500,450
+Phase 3 (Large),1.0,Q3,indexed,IXSCAN -> FETCH,1200,1200,1200,Index Scan,0.12,250,12
+Phase 3 (Large),1.0,Q4,none,COLLSCAN -> $lookup,150000,0,8000,Hash Join (Seq Scan),0.45,2500,450
+Phase 3 (Large),1.0,Q4,indexed,IXSCAN -> $lookup,8000,8000,8000,Hash Join (Index Scan),0.12,250,12
+Phase 3 (Large),1.0,Q5,none,COLLSCAN,1500000,0,5,Hash Join (Seq Scan),0.45,2500,450
+Phase 3 (Large),1.0,Q5,indexed,IXSCAN -> FETCH,5,5,5,Hash Join (Index Scan),0.12,250,12
