@@ -1,0 +1,50 @@
+{
+  "region": {
+    "postgres": 5,
+    "mongo": 5,
+    "csv_bytes": 188,
+    "sha256": "7cf208fd3069b911c1ab3372822eee406e497425f97478941d5bbbd22b769db8"
+  },
+  "nation": {
+    "postgres": 25,
+    "mongo": 25,
+    "csv_bytes": 1001,
+    "sha256": "945bb30c4939108a7b681481e56c21b10e4a10ea1f96a38237d6e3c6c5364c95"
+  },
+  "supplier": {
+    "postgres": 10000,
+    "mongo": 10000,
+    "csv_bytes": 830606,
+    "sha256": "1a19eecb1fdbdd269ed96f0c1ee257ed22ca2994fac0f68bd5723f7d8b6d90b8"
+  },
+  "customer": {
+    "postgres": 150000,
+    "mongo": 150000,
+    "csv_bytes": 14425529,
+    "sha256": "49d65136c82e2509b5afebe1890af75870b135a1d49f89324bb8524e0150310d"
+  },
+  "part": {
+    "postgres": 200000,
+    "mongo": 200000,
+    "csv_bytes": 20099934,
+    "sha256": "638938a26e28c80a2ebbc23246077aa1f98e82769f2a82112bca7f70c5a560ad"
+  },
+  "partsupp": {
+    "postgres": 800000,
+    "mongo": 800000,
+    "csv_bytes": 41879173,
+    "sha256": "cdab1b1c1c66a2b51b2e2e9e6ea4d658c18323070f7325a7661be36ebaf1a1e8"
+  },
+  "orders": {
+    "postgres": 1500000,
+    "mongo": 1500000,
+    "csv_bytes": 126153036,
+    "sha256": "e0b71cd76e1d1a853b88badbe987ef320aec35cc19c1b01ac8a50d6404ff6b3c"
+  },
+  "lineitem": {
+    "postgres": 5996154,
+    "mongo": 5996154,
+    "csv_bytes": 750661421,
+    "sha256": "dd9f9be862a4b76f2cf5ff4f9090432ca8fc40bccf84c076f8aa65fb6c820089"
+  }
+}

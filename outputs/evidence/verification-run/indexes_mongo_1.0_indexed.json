@@ -1,0 +1,125 @@
+{
+  "region": [
+    {
+      "v": 2,
+      "key": {
+        "_id": 1
+      },
+      "name": "_id_"
+    }
+  ],
+  "nation": [
+    {
+      "v": 2,
+      "key": {
+        "_id": 1
+      },
+      "name": "_id_"
+    }
+  ],
+  "supplier": [
+    {
+      "v": 2,
+      "key": {
+        "_id": 1
+      },
+      "name": "_id_"
+    }
+  ],
+  "customer": [
+    {
+      "v": 2,
+      "key": {
+        "_id": 1
+      },
+      "name": "_id_"
+    },
+    {
+      "v": 2,
+      "key": {
+        "c_custkey": 1
+      },
+      "name": "idx_c_custkey"
+    },
+    {
+      "v": 2,
+      "key": {
+        "c_mktsegment": 1
+      },
+      "name": "idx_c_mktsegment"
+    }
+  ],
+  "part": [
+    {
+      "v": 2,
+      "key": {
+        "_id": 1
+      },
+      "name": "_id_"
+    }
+  ],
+  "partsupp": [
+    {
+      "v": 2,
+      "key": {
+        "_id": 1
+      },
+      "name": "_id_"
+    }
+  ],
+  "orders": [
+    {
+      "v": 2,
+      "key": {
+        "_id": 1
+      },
+      "name": "_id_"
+    },
+    {
+      "v": 2,
+      "key": {
+        "o_totalprice": 1
+      },
+      "name": "idx_o_totalprice"
+    },
+    {
+      "v": 2,
+      "key": {
+        "o_orderstatus": 1,
+        "o_orderdate": 1,
+        "o_totalprice": 1
+      },
+      "name": "idx_orders_multi"
+    },
+    {
+      "v": 2,
+      "key": {
+        "o_custkey": 1
+      },
+      "name": "idx_o_custkey"
+    }
+  ],
+  "lineitem": [
+    {
+      "v": 2,
+      "key": {
+        "_id": 1
+      },
+      "name": "_id_"
+    },
+    {
+      "v": 2,
+      "key": {
+        "l_orderkey": 1
+      },
+      "name": "idx_l_orderkey"
+    },
+    {
+      "v": 2,
+      "key": {
+        "l_shipdate": 1
+      },
+      "name": "idx_l_shipdate"
+    }
+  ]
+}

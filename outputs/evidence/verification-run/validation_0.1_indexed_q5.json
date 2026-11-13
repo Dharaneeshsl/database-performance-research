@@ -1,0 +1,21 @@
+{
+  "match": true,
+  "postgres_rows": 5,
+  "mongo_rows": 5,
+  "postgres_sha256": "351344058490626b20d8c45fd5b6b0fc12ac17178953507a7c393ade01b28ee9",
+  "mongo_sha256": "351344058490626b20d8c45fd5b6b0fc12ac17178953507a7c393ade01b28ee9",
+  "postgres_example": [
+    "{\"o_orderpriority\": \"3-MEDIUM\", \"order_count\": 18502, \"total_revenue\": \"24466079.7786\"}",
+    "{\"o_orderpriority\": \"4-NOT SPECIFIED\", \"order_count\": 18481, \"total_revenue\": \"24294354.7518\"}",
+    "{\"o_orderpriority\": \"2-HIGH\", \"order_count\": 17867, \"total_revenue\": \"23966506.9904\"}",
+    "{\"o_orderpriority\": \"1-URGENT\", \"order_count\": 18018, \"total_revenue\": \"23961595.0194\"}",
+    "{\"o_orderpriority\": \"5-LOW\", \"order_count\": 17749, \"total_revenue\": \"23669664.2535\"}"
+  ],
+  "mongo_example": [
+    "{\"o_orderpriority\": \"3-MEDIUM\", \"order_count\": 18502, \"total_revenue\": \"24466079.7786\"}",
+    "{\"o_orderpriority\": \"4-NOT SPECIFIED\", \"order_count\": 18481, \"total_revenue\": \"24294354.7518\"}",
+    "{\"o_orderpriority\": \"2-HIGH\", \"order_count\": 17867, \"total_revenue\": \"23966506.9904\"}",
+    "{\"o_orderpriority\": \"1-URGENT\", \"order_count\": 18018, \"total_revenue\": \"23961595.0194\"}",
+    "{\"o_orderpriority\": \"5-LOW\", \"order_count\": 17749, \"total_revenue\": \"23669664.2535\"}"
+  ]
+}

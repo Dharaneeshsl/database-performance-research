@@ -1,0 +1,16 @@
+{
+  "db": "research_verified_20261113",
+  "collections": 8,
+  "views": 0,
+  "objects": 8656184,
+  "avgObjSize": 332.3322760930221,
+  "dataSize": 2876729331.0,
+  "storageSize": 718413824.0,
+  "indexes": 15,
+  "indexSize": 236064768.0,
+  "totalSize": 954478592.0,
+  "scaleFactor": 1,
+  "fsUsedSize": 73231659008.0,
+  "fsTotalSize": 429496725504.0,
+  "ok": 1.0
+}

@@ -1,0 +1,244 @@
+{
+  "explainVersion": "1",
+  "queryPlanner": {
+    "namespace": "research_verified_20261113.orders",
+    "parsedQuery": {
+      "$and": [
+        {
+          "o_orderstatus": {
+            "$eq": "O"
+          }
+        },
+        {
+          "o_totalprice": {
+            "$gt": 50000
+          }
+        },
+        {
+          "o_orderdate": {
+            "$gte": "1995-01-01"
+          }
+        }
+      ]
+    },
+    "indexFilterSet": false,
+    "queryHash": "E81CC76B",
+    "planCacheShapeHash": "E81CC76B",
+    "planCacheKey": "8E8824CE",
+    "optimizationTimeMillis": 0,
+    "maxIndexedOrSolutionsReached": false,
+    "maxIndexedAndSolutionsReached": false,
+    "maxScansToExplodeReached": false,
+    "prunedSimilarIndexes": false,
+    "winningPlan": {
+      "isCached": true,
+      "stage": "PROJECTION_SIMPLE",
+      "transformBy": {
+        "_id": 0
+      },
+      "inputStage": {
+        "stage": "FETCH",
+        "filter": {
+          "$and": [
+            {
+              "o_orderdate": {
+                "$gte": "1995-01-01"
+              }
+            },
+            {
+              "o_orderstatus": {
+                "$eq": "O"
+              }
+            }
+          ]
+        },
+        "inputStage": {
+          "stage": "IXSCAN",
+          "keyPattern": {
+            "o_totalprice": 1
+          },
+          "indexName": "idx_o_totalprice",
+          "isMultiKey": false,
+          "multiKeyPaths": {
+            "o_totalprice": []
+          },
+          "isUnique": false,
+          "isSparse": false,
+          "isPartial": false,
+          "indexVersion": 2,
+          "direction": "forward",
+          "indexBounds": {
+            "o_totalprice": [
+              "(50000, inf.0]"
+            ]
+          }
+        }
+      }
+    },
+    "rejectedPlans": [
+      {
+        "isCached": false,
+        "stage": "PROJECTION_SIMPLE",
+        "transformBy": {
+          "_id": 0
+        },
+        "inputStage": {
+          "stage": "FETCH",
+          "inputStage": {
+            "stage": "IXSCAN",
+            "keyPattern": {
+              "o_orderstatus": 1,
+              "o_orderdate": 1,
+              "o_totalprice": 1
+            },
+            "indexName": "idx_orders_multi",
+            "isMultiKey": false,
+            "multiKeyPaths": {
+              "o_orderstatus": [],
+              "o_orderdate": [],
+              "o_totalprice": []
+            },
+            "isUnique": false,
+            "isSparse": false,
+            "isPartial": false,
+            "indexVersion": 2,
+            "direction": "forward",
+            "indexBounds": {
+              "o_orderstatus": [
+                "[\"O\", \"O\"]"
+              ],
+              "o_orderdate": [
+                "[\"1995-01-01\", {})"
+              ],
+              "o_totalprice": [
+                "(50000, inf.0]"
+              ]
+            }
+          }
+        }
+      }
+    ]
+  },
+  "executionStats": {
+    "executionSuccess": true,
+    "nReturned": 0,
+    "executionTimeMillis": 0,
+    "totalKeysExamined": 0,
+    "totalDocsExamined": 0,
+    "executionStages": {
+      "isCached": true,
+      "stage": "PROJECTION_SIMPLE",
+      "nReturned": 0,
+      "executionTimeMillisEstimate": 0,
+      "works": 2,
+      "advanced": 0,
+      "needTime": 0,
+      "needYield": 0,
+      "saveState": 0,
+      "restoreState": 0,
+      "isEOF": 1,
+      "transformBy": {
+        "_id": 0
+      },
+      "inputStage": {
+        "stage": "FETCH",
+        "filter": {
+          "$and": [
+            {
+              "o_orderdate": {
+                "$gte": "1995-01-01"
+              }
+            },
+            {
+              "o_orderstatus": {
+                "$eq": "O"
+              }
+            }
+          ]
+        },
+        "nReturned": 0,
+        "executionTimeMillisEstimate": 0,
+        "works": 2,
+        "advanced": 0,
+        "needTime": 0,
+        "needYield": 0,
+        "saveState": 0,
+        "restoreState": 0,
+        "isEOF": 1,
+        "docsExamined": 0,
+        "alreadyHasObj": 0,
+        "inputStage": {
+          "stage": "IXSCAN",
+          "nReturned": 0,
+          "executionTimeMillisEstimate": 0,
+          "works": 1,
+          "advanced": 0,
+          "needTime": 0,
+          "needYield": 0,
+          "saveState": 0,
+          "restoreState": 0,
+          "isEOF": 1,
+          "keyPattern": {
+            "o_totalprice": 1
+          },
+          "indexName": "idx_o_totalprice",
+          "isMultiKey": false,
+          "multiKeyPaths": {
+            "o_totalprice": []
+          },
+          "isUnique": false,
+          "isSparse": false,
+          "isPartial": false,
+          "indexVersion": 2,
+          "direction": "forward",
+          "indexBounds": {
+            "o_totalprice": [
+              "(50000, inf.0]"
+            ]
+          },
+          "keysExamined": 0,
+          "seeks": 1,
+          "dupsTested": 0,
+          "dupsDropped": 0
+        }
+      }
+    }
+  },
+  "queryShapeHash": "C31D568880F4AD67BEA523369B7487E7FA45869250849526394188C8128E3574",
+  "command": {
+    "find": "orders",
+    "filter": {
+      "o_orderstatus": "O",
+      "o_orderdate": {
+        "$gte": "1995-01-01"
+      },
+      "o_totalprice": {
+        "$gt": 50000
+      }
+    },
+    "projection": {
+      "_id": 0
+    },
+    "maxTimeMS": 60000,
+    "$db": "research_verified_20261113"
+  },
+  "serverInfo": {
+    "host": "Dharaneesh",
+    "port": 27018,
+    "version": "8.0.37",
+    "gitVersion": "8ece10cbfc3379404a0dffdfb448b9e873b494f7"
+  },
+  "serverParameters": {
+    "internalQueryFacetBufferSizeBytes": 104857600,
+    "internalQueryFacetMaxOutputDocSizeBytes": 104857600,
+    "internalLookupStageIntermediateDocumentMaxSizeBytes": 104857600,
+    "internalDocumentSourceGroupMaxMemoryBytes": 104857600,
+    "internalQueryMaxBlockingSortMemoryUsageBytes": 104857600,
+    "internalQueryProhibitBlockingMergeOnMongoS": 0,
+    "internalQueryMaxAddToSetBytes": 104857600,
+    "internalDocumentSourceSetWindowFieldsMaxMemoryBytes": 104857600,
+    "internalQueryFrameworkControl": "trySbeRestricted",
+    "internalQueryPlannerIgnoreIndexWithCollationForRegex": 1
+  },
+  "ok": 1.0
+}

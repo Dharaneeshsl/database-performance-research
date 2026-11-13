@@ -1,0 +1,1 @@
+These files preserve the earlier verification run. The final manuscript uses the values supplied by the author from Antigravity. These logs have not been established as the exact run underlying those supplied values; they must not be treated as independent verification of every manuscript cell.

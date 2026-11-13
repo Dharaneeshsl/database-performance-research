@@ -1,0 +1,110 @@
+{
+  "explainVersion": "1",
+  "queryPlanner": {
+    "namespace": "research_verified_20261113.customer",
+    "parsedQuery": {
+      "c_custkey": {
+        "$eq": 100
+      }
+    },
+    "indexFilterSet": false,
+    "queryHash": "B4987916",
+    "planCacheShapeHash": "B4987916",
+    "planCacheKey": "3D71F686",
+    "optimizationTimeMillis": 0,
+    "maxIndexedOrSolutionsReached": false,
+    "maxIndexedAndSolutionsReached": false,
+    "maxScansToExplodeReached": false,
+    "prunedSimilarIndexes": false,
+    "winningPlan": {
+      "isCached": false,
+      "stage": "PROJECTION_SIMPLE",
+      "transformBy": {
+        "_id": 0
+      },
+      "inputStage": {
+        "stage": "COLLSCAN",
+        "filter": {
+          "c_custkey": {
+            "$eq": 100
+          }
+        },
+        "direction": "forward"
+      }
+    },
+    "rejectedPlans": []
+  },
+  "executionStats": {
+    "executionSuccess": true,
+    "nReturned": 1,
+    "executionTimeMillis": 195,
+    "totalKeysExamined": 0,
+    "totalDocsExamined": 75000,
+    "executionStages": {
+      "isCached": false,
+      "stage": "PROJECTION_SIMPLE",
+      "nReturned": 1,
+      "executionTimeMillisEstimate": 187,
+      "works": 75001,
+      "advanced": 1,
+      "needTime": 74999,
+      "needYield": 0,
+      "saveState": 10,
+      "restoreState": 10,
+      "isEOF": 1,
+      "transformBy": {
+        "_id": 0
+      },
+      "inputStage": {
+        "stage": "COLLSCAN",
+        "filter": {
+          "c_custkey": {
+            "$eq": 100
+          }
+        },
+        "nReturned": 1,
+        "executionTimeMillisEstimate": 187,
+        "works": 75001,
+        "advanced": 1,
+        "needTime": 74999,
+        "needYield": 0,
+        "saveState": 10,
+        "restoreState": 10,
+        "isEOF": 1,
+        "direction": "forward",
+        "docsExamined": 75000
+      }
+    }
+  },
+  "queryShapeHash": "65FFEFF6CFE63AF0D85DC675141554A9767D58F6134669DA2FCADB75F8FAEBFF",
+  "command": {
+    "find": "customer",
+    "filter": {
+      "c_custkey": 100
+    },
+    "projection": {
+      "_id": 0
+    },
+    "maxTimeMS": 60000,
+    "$db": "research_verified_20261113"
+  },
+  "serverInfo": {
+    "host": "Dharaneesh",
+    "port": 27018,
+    "version": "8.0.37",
+    "gitVersion": "8ece10cbfc3379404a0dffdfb448b9e873b494f7"
+  },
+  "serverParameters": {
+    "internalQueryFacetBufferSizeBytes": 104857600,
+    "internalQueryFacetMaxOutputDocSizeBytes": 104857600,
+    "internalLookupStageIntermediateDocumentMaxSizeBytes": 104857600,
+    "internalDocumentSourceGroupMaxMemoryBytes": 104857600,
+    "internalQueryMaxBlockingSortMemoryUsageBytes": 104857600,
+    "internalQueryProhibitBlockingMergeOnMongoS": 0,
+    "internalQueryMaxAddToSetBytes": 104857600,
+    "internalDocumentSourceSetWindowFieldsMaxMemoryBytes": 104857600,
+    "internalQueryFrameworkControl": "trySbeRestricted",
+    "internalQueryPlannerIgnoreIndexWithCollationForRegex": 1
+  },
+  "ok": 1.0
+}

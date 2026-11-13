@@ -1,0 +1,158 @@
+{
+  "explainVersion": "1",
+  "queryPlanner": {
+    "namespace": "research_verified_20261113.orders",
+    "parsedQuery": {
+      "$and": [
+        {
+          "o_orderstatus": {
+            "$eq": "O"
+          }
+        },
+        {
+          "o_totalprice": {
+            "$gt": 50000
+          }
+        },
+        {
+          "o_orderdate": {
+            "$gte": "1995-01-01"
+          }
+        }
+      ]
+    },
+    "indexFilterSet": false,
+    "queryHash": "E81CC76B",
+    "planCacheShapeHash": "E81CC76B",
+    "planCacheKey": "EBDE2A57",
+    "optimizationTimeMillis": 0,
+    "maxIndexedOrSolutionsReached": false,
+    "maxIndexedAndSolutionsReached": false,
+    "maxScansToExplodeReached": false,
+    "prunedSimilarIndexes": false,
+    "winningPlan": {
+      "isCached": false,
+      "stage": "PROJECTION_SIMPLE",
+      "transformBy": {
+        "_id": 0
+      },
+      "inputStage": {
+        "stage": "COLLSCAN",
+        "filter": {
+          "$and": [
+            {
+              "o_orderstatus": {
+                "$eq": "O"
+              }
+            },
+            {
+              "o_totalprice": {
+                "$gt": 50000
+              }
+            },
+            {
+              "o_orderdate": {
+                "$gte": "1995-01-01"
+              }
+            }
+          ]
+        },
+        "direction": "forward"
+      }
+    },
+    "rejectedPlans": []
+  },
+  "executionStats": {
+    "executionSuccess": true,
+    "nReturned": 0,
+    "executionTimeMillis": 2010,
+    "totalKeysExamined": 0,
+    "totalDocsExamined": 750000,
+    "executionStages": {
+      "isCached": false,
+      "stage": "PROJECTION_SIMPLE",
+      "nReturned": 0,
+      "executionTimeMillisEstimate": 1913,
+      "works": 750001,
+      "advanced": 0,
+      "needTime": 750000,
+      "needYield": 0,
+      "saveState": 128,
+      "restoreState": 128,
+      "isEOF": 1,
+      "transformBy": {
+        "_id": 0
+      },
+      "inputStage": {
+        "stage": "COLLSCAN",
+        "filter": {
+          "$and": [
+            {
+              "o_orderstatus": {
+                "$eq": "O"
+              }
+            },
+            {
+              "o_totalprice": {
+                "$gt": 50000
+              }
+            },
+            {
+              "o_orderdate": {
+                "$gte": "1995-01-01"
+              }
+            }
+          ]
+        },
+        "nReturned": 0,
+        "executionTimeMillisEstimate": 1882,
+        "works": 750001,
+        "advanced": 0,
+        "needTime": 750000,
+        "needYield": 0,
+        "saveState": 128,
+        "restoreState": 128,
+        "isEOF": 1,
+        "direction": "forward",
+        "docsExamined": 750000
+      }
+    }
+  },
+  "queryShapeHash": "C31D568880F4AD67BEA523369B7487E7FA45869250849526394188C8128E3574",
+  "command": {
+    "find": "orders",
+    "filter": {
+      "o_orderstatus": "O",
+      "o_orderdate": {
+        "$gte": "1995-01-01"
+      },
+      "o_totalprice": {
+        "$gt": 50000
+      }
+    },
+    "projection": {
+      "_id": 0
+    },
+    "maxTimeMS": 60000,
+    "$db": "research_verified_20261113"
+  },
+  "serverInfo": {
+    "host": "Dharaneesh",
+    "port": 27018,
+    "version": "8.0.37",
+    "gitVersion": "8ece10cbfc3379404a0dffdfb448b9e873b494f7"
+  },
+  "serverParameters": {
+    "internalQueryFacetBufferSizeBytes": 104857600,
+    "internalQueryFacetMaxOutputDocSizeBytes": 104857600,
+    "internalLookupStageIntermediateDocumentMaxSizeBytes": 104857600,
+    "internalDocumentSourceGroupMaxMemoryBytes": 104857600,
+    "internalQueryMaxBlockingSortMemoryUsageBytes": 104857600,
+    "internalQueryProhibitBlockingMergeOnMongoS": 0,
+    "internalQueryMaxAddToSetBytes": 104857600,
+    "internalDocumentSourceSetWindowFieldsMaxMemoryBytes": 104857600,
+    "internalQueryFrameworkControl": "trySbeRestricted",
+    "internalQueryPlannerIgnoreIndexWithCollationForRegex": 1
+  },
+  "ok": 1.0
+}

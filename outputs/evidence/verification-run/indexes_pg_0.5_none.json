@@ -1,0 +1,34 @@
+[
+  [
+    "region_pkey",
+    "CREATE UNIQUE INDEX region_pkey ON public.region USING btree (r_regionkey)"
+  ],
+  [
+    "orders_pkey",
+    "CREATE UNIQUE INDEX orders_pkey ON public.orders USING btree (o_orderkey)"
+  ],
+  [
+    "lineitem_pkey",
+    "CREATE UNIQUE INDEX lineitem_pkey ON public.lineitem USING btree (l_orderkey, l_linenumber)"
+  ],
+  [
+    "nation_pkey",
+    "CREATE UNIQUE INDEX nation_pkey ON public.nation USING btree (n_nationkey)"
+  ],
+  [
+    "customer_pkey",
+    "CREATE UNIQUE INDEX customer_pkey ON public.customer USING btree (c_custkey)"
+  ],
+  [
+    "supplier_pkey",
+    "CREATE UNIQUE INDEX supplier_pkey ON public.supplier USING btree (s_suppkey)"
+  ],
+  [
+    "part_pkey",
+    "CREATE UNIQUE INDEX part_pkey ON public.part USING btree (p_partkey)"
+  ],
+  [
+    "partsupp_pkey",
+    "CREATE UNIQUE INDEX partsupp_pkey ON public.partsupp USING btree (ps_partkey, ps_suppkey)"
+  ]
+]

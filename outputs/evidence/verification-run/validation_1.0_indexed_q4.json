@@ -1,0 +1,21 @@
+{
+  "match": true,
+  "postgres_rows": 300214,
+  "mongo_rows": 300214,
+  "postgres_sha256": "ff88d713f01fe8f1605b551a6b64b97af3ad43edcb48e65fc6932be8cda0e650",
+  "mongo_sha256": "ff88d713f01fe8f1605b551a6b64b97af3ad43edcb48e65fc6932be8cda0e650",
+  "postgres_example": [
+    "{\"c_custkey\": 36734, \"c_name\": \"Customer#000036734\", \"o_orderdate\": \"1994-07-10\", \"o_orderkey\": 8, \"o_totalprice\": \"10190.73\"}",
+    "{\"c_custkey\": 48498, \"c_name\": \"Customer#000048498\", \"o_orderdate\": \"1995-06-25\", \"o_orderkey\": 9, \"o_totalprice\": \"3128.43\"}",
+    "{\"c_custkey\": 60752, \"c_name\": \"Customer#000060752\", \"o_orderdate\": \"1993-01-21\", \"o_orderkey\": 23, \"o_totalprice\": \"6643.87\"}",
+    "{\"c_custkey\": 60287, \"c_name\": \"Customer#000060287\", \"o_orderdate\": \"1997-04-29\", \"o_orderkey\": 24, \"o_totalprice\": \"6171.68\"}",
+    "{\"c_custkey\": 78758, \"c_name\": \"Customer#000078758\", \"o_orderdate\": \"1997-03-07\", \"o_orderkey\": 31, \"o_totalprice\": \"7416.25\"}"
+  ],
+  "mongo_example": [
+    "{\"c_custkey\": 1, \"c_name\": \"Customer#000000001\", \"o_orderdate\": \"1997-07-13\", \"o_orderkey\": 27926, \"o_totalprice\": \"2466.96\"}",
+    "{\"c_custkey\": 1, \"c_name\": \"Customer#000000001\", \"o_orderdate\": \"1996-01-06\", \"o_orderkey\": 148314, \"o_totalprice\": \"13443.39\"}",
+    "{\"c_custkey\": 1, \"c_name\": \"Customer#000000001\", \"o_orderdate\": \"1994-07-17\", \"o_orderkey\": 286751, \"o_totalprice\": \"3665.30\"}",
+    "{\"c_custkey\": 1, \"c_name\": \"Customer#000000001\", \"o_orderdate\": \"1998-05-03\", \"o_orderkey\": 387290, \"o_totalprice\": \"6087.33\"}",
+    "{\"c_custkey\": 1, \"c_name\": \"Customer#000000001\", \"o_orderdate\": \"1994-05-14\", \"o_orderkey\": 612353, \"o_totalprice\": \"5017.91\"}"
+  ]
+}

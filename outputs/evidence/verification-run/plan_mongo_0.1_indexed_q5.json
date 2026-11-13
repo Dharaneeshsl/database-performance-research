@@ -1,0 +1,239 @@
+{
+  "explainVersion": "1",
+  "stages": [
+    {
+      "$cursor": {
+        "queryPlanner": {
+          "namespace": "research_verified_20261113.orders",
+          "parsedQuery": {},
+          "indexFilterSet": false,
+          "queryHash": "30776D76",
+          "planCacheShapeHash": "30776D76",
+          "planCacheKey": "4DCC3266",
+          "optimizationTimeMillis": 0,
+          "maxIndexedOrSolutionsReached": false,
+          "maxIndexedAndSolutionsReached": false,
+          "maxScansToExplodeReached": false,
+          "prunedSimilarIndexes": false,
+          "winningPlan": {
+            "isCached": false,
+            "stage": "PROJECTION_SIMPLE",
+            "transformBy": {
+              "o_orderkey": 1,
+              "o_orderpriority": 1,
+              "_id": 0
+            },
+            "inputStage": {
+              "stage": "COLLSCAN",
+              "direction": "forward"
+            }
+          },
+          "rejectedPlans": []
+        },
+        "executionStats": {
+          "executionSuccess": true,
+          "nReturned": 150000,
+          "executionTimeMillis": 25516,
+          "totalKeysExamined": 0,
+          "totalDocsExamined": 150000,
+          "executionStages": {
+            "isCached": false,
+            "stage": "PROJECTION_SIMPLE",
+            "nReturned": 150000,
+            "executionTimeMillisEstimate": 130,
+            "works": 150001,
+            "advanced": 150000,
+            "needTime": 0,
+            "needYield": 0,
+            "saveState": 37,
+            "restoreState": 37,
+            "isEOF": 1,
+            "transformBy": {
+              "o_orderkey": 1,
+              "o_orderpriority": 1,
+              "_id": 0
+            },
+            "inputStage": {
+              "stage": "COLLSCAN",
+              "nReturned": 150000,
+              "executionTimeMillisEstimate": 87,
+              "works": 150001,
+              "advanced": 150000,
+              "needTime": 0,
+              "needYield": 0,
+              "saveState": 37,
+              "restoreState": 37,
+              "isEOF": 1,
+              "direction": "forward",
+              "docsExamined": 150000
+            }
+          }
+        }
+      },
+      "nReturned": 150000,
+      "executionTimeMillisEstimate": 156
+    },
+    {
+      "$lookup": {
+        "from": "lineitem",
+        "as": "items",
+        "localField": "o_orderkey",
+        "foreignField": "l_orderkey",
+        "let": {},
+        "pipeline": [
+          {
+            "$match": {
+              "$and": [
+                {
+                  "l_shipdate": {
+                    "$gte": "1994-01-01"
+                  }
+                },
+                {
+                  "l_shipdate": {
+                    "$lt": "1995-01-01"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "unwinding": {
+          "preserveNullAndEmptyArrays": false
+        }
+      },
+      "totalDocsExamined": 600018,
+      "totalKeysExamined": 600018,
+      "collectionScans": 0,
+      "indexesUsed": [
+        "idx_l_orderkey"
+      ],
+      "nReturned": 90617,
+      "executionTimeMillisEstimate": 25513
+    },
+    {
+      "$group": {
+        "_id": "$o_orderpriority",
+        "order_count": {
+          "$sum": {
+            "$const": 1
+          }
+        },
+        "total_revenue": {
+          "$sum": {
+            "$multiply": [
+              "$items.l_extendedprice",
+              {
+                "$subtract": [
+                  {
+                    "$const": 1
+                  },
+                  "$items.l_discount"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "maxAccumulatorMemoryUsageBytes": {
+        "order_count": 640,
+        "total_revenue": 640
+      },
+      "totalOutputDataSizeBytes": 1424,
+      "usedDisk": false,
+      "spills": 0,
+      "spilledDataStorageSize": 0,
+      "numBytesSpilledEstimate": 0,
+      "spilledRecords": 0,
+      "nReturned": 5,
+      "executionTimeMillisEstimate": 25516
+    },
+    {
+      "$sort": {
+        "sortKey": {
+          "total_revenue": -1
+        }
+      },
+      "totalDataSizeSortedBytesEstimate": 1464,
+      "usedDisk": false,
+      "spills": 0,
+      "spilledDataStorageSize": 0,
+      "nReturned": 5,
+      "executionTimeMillisEstimate": 25516
+    }
+  ],
+  "queryShapeHash": "1CA518FFB5C138E4CC6CDDDAC80E16EF07D6D856FD9B1A2002A83927B82D84CF",
+  "serverInfo": {
+    "host": "Dharaneesh",
+    "port": 27018,
+    "version": "8.0.37",
+    "gitVersion": "8ece10cbfc3379404a0dffdfb448b9e873b494f7"
+  },
+  "serverParameters": {
+    "internalQueryFacetBufferSizeBytes": 104857600,
+    "internalQueryFacetMaxOutputDocSizeBytes": 104857600,
+    "internalLookupStageIntermediateDocumentMaxSizeBytes": 104857600,
+    "internalDocumentSourceGroupMaxMemoryBytes": 104857600,
+    "internalQueryMaxBlockingSortMemoryUsageBytes": 104857600,
+    "internalQueryProhibitBlockingMergeOnMongoS": 0,
+    "internalQueryMaxAddToSetBytes": 104857600,
+    "internalDocumentSourceSetWindowFieldsMaxMemoryBytes": 104857600,
+    "internalQueryFrameworkControl": "trySbeRestricted",
+    "internalQueryPlannerIgnoreIndexWithCollationForRegex": 1
+  },
+  "command": {
+    "aggregate": "orders",
+    "pipeline": [
+      {
+        "$lookup": {
+          "from": "lineitem",
+          "localField": "o_orderkey",
+          "foreignField": "l_orderkey",
+          "as": "items"
+        }
+      },
+      {
+        "$unwind": "$items"
+      },
+      {
+        "$match": {
+          "items.l_shipdate": {
+            "$gte": "1994-01-01",
+            "$lt": "1995-01-01"
+          }
+        }
+      },
+      {
+        "$group": {
+          "_id": "$o_orderpriority",
+          "order_count": {
+            "$sum": 1
+          },
+          "total_revenue": {
+            "$sum": {
+              "$multiply": [
+                "$items.l_extendedprice",
+                {
+                  "$subtract": [
+                    1,
+                    "$items.l_discount"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "$sort": {
+          "total_revenue": -1
+        }
+      }
+    ],
+    "cursor": {},
+    "maxTimeMS": 60000,
+    "allowDiskUse": true,
+    "$db": "research_verified_20261113"
+  },
+  "ok": 1.0
+}

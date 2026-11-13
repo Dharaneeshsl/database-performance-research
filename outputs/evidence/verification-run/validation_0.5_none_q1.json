@@ -1,0 +1,13 @@
+{
+  "match": true,
+  "postgres_rows": 1,
+  "mongo_rows": 1,
+  "postgres_sha256": "e6d2a7046f7da170df8358dd47ed3b00d293ced23badb33707ebc3ae4d1d1673",
+  "mongo_sha256": "e6d2a7046f7da170df8358dd47ed3b00d293ced23badb33707ebc3ae4d1d1673",
+  "postgres_example": [
+    "{\"c_acctbal\": \"3658.28\", \"c_address\": \"Address#100\", \"c_comment\": \"Comment cust 100\", \"c_custkey\": 100, \"c_mktsegment\": \"BUILDING\", \"c_name\": \"Customer#000000100\", \"c_nationkey\": 16, \"c_phone\": \"13-623-770-7386\"}"
+  ],
+  "mongo_example": [
+    "{\"c_acctbal\": \"3658.28\", \"c_address\": \"Address#100\", \"c_comment\": \"Comment cust 100\", \"c_custkey\": 100, \"c_mktsegment\": \"BUILDING\", \"c_name\": \"Customer#000000100\", \"c_nationkey\": 16, \"c_phone\": \"13-623-770-7386\"}"
+  ]
+}

@@ -1,0 +1,221 @@
+{
+  "explainVersion": "1",
+  "stages": [
+    {
+      "$cursor": {
+        "queryPlanner": {
+          "namespace": "research_verified_20261113.customer",
+          "parsedQuery": {
+            "c_mktsegment": {
+              "$eq": "BUILDING"
+            }
+          },
+          "indexFilterSet": false,
+          "queryHash": "6538A7A9",
+          "planCacheShapeHash": "6538A7A9",
+          "planCacheKey": "120AB7AC",
+          "optimizationTimeMillis": 0,
+          "maxIndexedOrSolutionsReached": false,
+          "maxIndexedAndSolutionsReached": false,
+          "maxScansToExplodeReached": false,
+          "prunedSimilarIndexes": false,
+          "winningPlan": {
+            "isCached": false,
+            "stage": "PROJECTION_SIMPLE",
+            "transformBy": {
+              "c_custkey": 1,
+              "c_name": 1,
+              "_id": 0
+            },
+            "inputStage": {
+              "stage": "FETCH",
+              "inputStage": {
+                "stage": "IXSCAN",
+                "keyPattern": {
+                  "c_mktsegment": 1
+                },
+                "indexName": "idx_c_mktsegment",
+                "isMultiKey": false,
+                "multiKeyPaths": {
+                  "c_mktsegment": []
+                },
+                "isUnique": false,
+                "isSparse": false,
+                "isPartial": false,
+                "indexVersion": 2,
+                "direction": "forward",
+                "indexBounds": {
+                  "c_mktsegment": [
+                    "[\"BUILDING\", \"BUILDING\"]"
+                  ]
+                }
+              }
+            }
+          },
+          "rejectedPlans": []
+        },
+        "executionStats": {
+          "executionSuccess": true,
+          "nReturned": 30058,
+          "executionTimeMillis": 10678,
+          "totalKeysExamined": 30058,
+          "totalDocsExamined": 30058,
+          "executionStages": {
+            "isCached": false,
+            "stage": "PROJECTION_SIMPLE",
+            "nReturned": 30058,
+            "executionTimeMillisEstimate": 100,
+            "works": 30059,
+            "advanced": 30058,
+            "needTime": 0,
+            "needYield": 0,
+            "saveState": 25,
+            "restoreState": 25,
+            "isEOF": 1,
+            "transformBy": {
+              "c_custkey": 1,
+              "c_name": 1,
+              "_id": 0
+            },
+            "inputStage": {
+              "stage": "FETCH",
+              "nReturned": 30058,
+              "executionTimeMillisEstimate": 100,
+              "works": 30059,
+              "advanced": 30058,
+              "needTime": 0,
+              "needYield": 0,
+              "saveState": 25,
+              "restoreState": 25,
+              "isEOF": 1,
+              "docsExamined": 30058,
+              "alreadyHasObj": 0,
+              "inputStage": {
+                "stage": "IXSCAN",
+                "nReturned": 30058,
+                "executionTimeMillisEstimate": 37,
+                "works": 30059,
+                "advanced": 30058,
+                "needTime": 0,
+                "needYield": 0,
+                "saveState": 25,
+                "restoreState": 25,
+                "isEOF": 1,
+                "keyPattern": {
+                  "c_mktsegment": 1
+                },
+                "indexName": "idx_c_mktsegment",
+                "isMultiKey": false,
+                "multiKeyPaths": {
+                  "c_mktsegment": []
+                },
+                "isUnique": false,
+                "isSparse": false,
+                "isPartial": false,
+                "indexVersion": 2,
+                "direction": "forward",
+                "indexBounds": {
+                  "c_mktsegment": [
+                    "[\"BUILDING\", \"BUILDING\"]"
+                  ]
+                },
+                "keysExamined": 30058,
+                "seeks": 1,
+                "dupsTested": 0,
+                "dupsDropped": 0
+              }
+            }
+          }
+        }
+      },
+      "nReturned": 30058,
+      "executionTimeMillisEstimate": 102
+    },
+    {
+      "$lookup": {
+        "from": "orders",
+        "as": "customer_orders",
+        "localField": "c_custkey",
+        "foreignField": "o_custkey",
+        "unwinding": {
+          "preserveNullAndEmptyArrays": false
+        }
+      },
+      "totalDocsExamined": 300214,
+      "totalKeysExamined": 300214,
+      "collectionScans": 0,
+      "indexesUsed": [
+        "idx_o_custkey"
+      ],
+      "nReturned": 300214,
+      "executionTimeMillisEstimate": 10673
+    },
+    {
+      "$project": {
+        "c_custkey": true,
+        "c_name": true,
+        "o_orderkey": "$customer_orders.o_orderkey",
+        "o_totalprice": "$customer_orders.o_totalprice",
+        "o_orderdate": "$customer_orders.o_orderdate",
+        "_id": false
+      },
+      "nReturned": 300214,
+      "executionTimeMillisEstimate": 10676
+    }
+  ],
+  "queryShapeHash": "F74B30CB4F0B17578721AA318E5E7C881E89B79A240F9695DC10DF2D18F7166C",
+  "serverInfo": {
+    "host": "Dharaneesh",
+    "port": 27018,
+    "version": "8.0.37",
+    "gitVersion": "8ece10cbfc3379404a0dffdfb448b9e873b494f7"
+  },
+  "serverParameters": {
+    "internalQueryFacetBufferSizeBytes": 104857600,
+    "internalQueryFacetMaxOutputDocSizeBytes": 104857600,
+    "internalLookupStageIntermediateDocumentMaxSizeBytes": 104857600,
+    "internalDocumentSourceGroupMaxMemoryBytes": 104857600,
+    "internalQueryMaxBlockingSortMemoryUsageBytes": 104857600,
+    "internalQueryProhibitBlockingMergeOnMongoS": 0,
+    "internalQueryMaxAddToSetBytes": 104857600,
+    "internalDocumentSourceSetWindowFieldsMaxMemoryBytes": 104857600,
+    "internalQueryFrameworkControl": "trySbeRestricted",
+    "internalQueryPlannerIgnoreIndexWithCollationForRegex": 1
+  },
+  "command": {
+    "aggregate": "customer",
+    "pipeline": [
+      {
+        "$match": {
+          "c_mktsegment": "BUILDING"
+        }
+      },
+      {
+        "$lookup": {
+          "from": "orders",
+          "localField": "c_custkey",
+          "foreignField": "o_custkey",
+          "as": "customer_orders"
+        }
+      },
+      {
+        "$unwind": "$customer_orders"
+      },
+      {
+        "$project": {
+          "_id": 0,
+          "c_custkey": 1,
+          "c_name": 1,
+          "o_orderkey": "$customer_orders.o_orderkey",
+          "o_totalprice": "$customer_orders.o_totalprice",
+          "o_orderdate": "$customer_orders.o_orderdate"
+        }
+      }
+    ],
+    "cursor": {},
+    "maxTimeMS": 60000,
+    "allowDiskUse": true,
+    "$db": "research_verified_20261113"
+  },
+  "ok": 1.0
+}

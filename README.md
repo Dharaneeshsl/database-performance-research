@@ -2,6 +2,18 @@
 
 An experimental analysis of **MongoDB** and **PostgreSQL** performance under varying data volumes, query complexities, and indexing strategies using TPC-H workloads.
 
+## Final submission files
+
+- `main.tex`: final manuscript source, with its original section structure and supplied numerical results.
+- `main.pdf`: final 10-page exported paper.
+- `figures/`: the 14 final figures; Figures 1 and 2 are black and white.
+- `outputs/evidence/`: summary CSVs used by the final chart generator.
+- `outputs/evidence/verification-run/`: earlier verification logs, kept separately with their provenance limitation.
+
+The manuscript values were supplied by the author from Antigravity; this repository does not certify that every value was independently reproduced. Older `results/processed/` outputs and legacy analysis scripts are retained for project history and are not the authoritative final submission tables.
+
+To regenerate the final charts, run `python -m analysis.publication_figures`. Local database files, generated datasets, downloads, and temporary work are excluded from Git. Copy `config/database.example.yaml` to `config/database.yaml` and enter credentials locally.
+
 ## Research Questions
 - **RQ1 (Data Volume)**: How does increasing data volume affect CRUD performance in MongoDB and PostgreSQL?
 - **RQ2 (Query Complexity)**: How does query complexity (Q1–Q5) affect query response times?
@@ -79,7 +91,7 @@ pip install -r requirements.txt
 ```
 
 ### 2. Setup Configuration
-Edit `config/database.yaml` with your local PostgreSQL and MongoDB credentials.
+Copy `config/database.example.yaml` to `config/database.yaml`, then enter your local PostgreSQL and MongoDB credentials. This local file is ignored by Git.
 
 ### 3. Generate TPC-H Data
 ```bash

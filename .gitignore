@@ -25,3 +25,13 @@ results/raw/
 .DS_Store
 Thumbs.db
 *.log
+
+# Local credentials, working databases, tools, and generated intermediates
+/config/database.yaml
+/work/
+*.aux
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk

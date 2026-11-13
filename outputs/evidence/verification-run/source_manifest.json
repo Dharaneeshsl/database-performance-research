@@ -1,0 +1,42 @@
+{
+  "region": {
+    "count": 5,
+    "bytes": 188,
+    "sha256": "f9b76cabc2ae212a5c8421693b0257c0a4a9c9657d20ae0def26f7837069d0e5"
+  },
+  "nation": {
+    "count": 25,
+    "bytes": 1001,
+    "sha256": "e5ff1a415467e2f71cea565a0d55cdd0987a46518f0b72bf15f3534fa69a664b"
+  },
+  "supplier": {
+    "count": 1000,
+    "bytes": 80049,
+    "sha256": "49f2905989ca3617a817269446b77f3515d87134591113d2249671517f1fa517"
+  },
+  "customer": {
+    "count": 15000,
+    "bytes": 1397432,
+    "sha256": "cd4e15614ac3f1a74a819c046d5f9897130c6bae81a576ccbf2e7578c39f6abb"
+  },
+  "part": {
+    "count": 20000,
+    "bytes": 1949875,
+    "sha256": "40be9ba70b3451184026e651d0d70ee8a47b70e477758a0a7f41d4881cb957b9"
+  },
+  "partsupp": {
+    "count": 80000,
+    "bytes": 3868111,
+    "sha256": "62d83df97b168fcf70acfdbbcd8e37cef7efe79b91393541e6d2db2ca194f016"
+  },
+  "orders": {
+    "count": 150000,
+    "bytes": 12164335,
+    "sha256": "81a7551625f34d57d3f5ae3af011aaa9ac305301a326095f4e431f6f6ff96f62"
+  },
+  "lineitem": {
+    "count": 600013,
+    "bytes": 72718089,
+    "sha256": "a44d2adc790ef46f554dd069778836deb091d56f26d23d9f0c3e917fcce32faa"
+  }
+}
